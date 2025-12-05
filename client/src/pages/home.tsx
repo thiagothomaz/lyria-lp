@@ -21,6 +21,7 @@ import {
 // Assets
 import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
+import penImage from "@assets/generated_images/sleek_modern_weight_loss_pen_injection_device.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -135,7 +136,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Section 1: Hero */}
+      {/* Section 1: Hero (Light) */}
       <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
         <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block overflow-hidden">
            <motion.img
@@ -263,8 +264,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 2: Why Lyria */}
-      <section className="py-32 bg-muted/50">
+      {/* Section 2: Why Lyria (Dark) */}
+      <section className="py-32 bg-secondary text-white">
         <div className="container mx-auto px-6">
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-16"
@@ -272,7 +273,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Por que escolher a Lyria?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Por que escolher a Lyria?</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -295,79 +296,25 @@ export default function Home() {
             ].map((card, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-soft-lg transition-all duration-300 group"
+                className="bg-white/10 p-8 rounded-2xl border border-white/10 shadow-soft transition-all duration-300 group backdrop-blur-sm"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15, duration: 0.5 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.15)" }}
               >
-                <div className="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                   <card.icon size={28} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{card.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{card.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 text-white">{card.title}</h3>
+                <p className="text-white/70 leading-relaxed">{card.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 3: Lyria Answers */}
-      <section className="py-32 bg-secondary text-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white">Tem dúvidas? A Lyria responde para você.</h2>
-            
-            <motion.div 
-              className="bg-white rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto mb-12"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", bounce: 0.4 }}
-            >
-              <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4 border border-gray-200">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">L</div>
-                </div>
-                <input 
-                  type="text" 
-                  placeholder="Pergunte qualquer coisa sobre seu tratamento" 
-                  className="bg-transparent flex-1 text-gray-800 placeholder-gray-400 outline-none font-medium"
-                  disabled
-                />
-                <button className="text-primary hover:bg-orange-50 p-2 rounded-lg transition-colors">
-                  <Send size={20} />
-                </button>
-              </div>
-            </motion.div>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "A medicação indicada é a ideal para mim?",
-                "Quando devo renovar minha prescrição?",
-                "Como funciona o acompanhamento médico?",
-                "Quais são os efeitos esperados?",
-                "Como organizar minha rotina?"
-              ].map((chip, idx) => (
-                <motion.button 
-                  key={chip}
-                  className="px-5 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20 transition-all duration-200 backdrop-blur-sm"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + (idx * 0.1) }}
-                  whileHover={{ y: -2, backgroundColor: "rgba(255,255,255,0.2)" }}
-                >
-                  {chip}
-                </motion.button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Safety & Compliance */}
+      {/* Section 3: Safety & Compliance (Light) */}
       <section id="seguranca" className="py-32 bg-gradient-to-b from-[#EBE8D8] to-[#F5F2E8]">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -408,47 +355,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 5: CTA */}
+      {/* Section 4: CTA (Dark) */}
       <section className="py-24 bg-secondary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-8 max-w-3xl mx-auto text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            Comece agora sua jornada de transformação com segurança médica.
-          </motion.h2>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-left">
+              <motion.h2 
+                className="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                Comece agora sua jornada de transformação com segurança médica.
+              </motion.h2>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-12 text-lg text-white/90">
-            {[
-              "Avaliação médica completa",
-              "Receita digital válida em todo o Brasil",
-              "Acompanhamento contínuo",
-              "Processo simples, rápido e sem burocracia"
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <Check size={20} className="text-primary" />
-                <span>{item}</span>
+              <div className="flex flex-col gap-4 mb-10 text-lg text-white/90">
+                {[
+                  "Avaliação médica completa",
+                  "Receita digital válida em todo o Brasil",
+                  "Acompanhamento contínuo",
+                  "Processo simples, rápido e sem burocracia"
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="bg-primary/20 p-1 rounded-full">
+                      <Check size={16} className="text-primary" />
+                    </div>
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <motion.button 
-            className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            Iniciar avaliação médica →
-          </motion.button>
+              <motion.button 
+                className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+              >
+                Iniciar avaliação médica →
+              </motion.button>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, x: 20 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+                 <img 
+                   src={penImage} 
+                   alt="Caneta emagrecedora" 
+                   className="w-full h-auto object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-700" 
+                 />
+                 <div className="absolute bottom-12 left-12 bg-white/90 text-secondary px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
+                   Tecnologia Avançada
+                 </div>
+              </div>
+              {/* Decorative background glow */}
+              <div className="absolute -inset-4 bg-primary/20 blur-3xl -z-10 rounded-full" />
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Section 6: How it Works */}
+      {/* Section 5: How it Works (Light) */}
       <section id="como-funciona" className="py-32 bg-white">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-gray-900">Como funciona</h2>
@@ -494,10 +468,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 7: FAQ */}
-      <section id="faq" className="py-32 bg-muted/30">
+      {/* Section 6: FAQ (Dark) */}
+      <section id="faq" className="py-32 bg-secondary">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">Perguntas frequentes</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">Perguntas frequentes</h2>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
@@ -518,11 +492,11 @@ export default function Home() {
                 a: "Sim. Todo o processo segue protocolos médicos oficiais, com prescrição individualizada e proteção total dos seus dados conforme a LGPD. Todos os nossos médicos são certificados."
               }
             ].map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="bg-white border border-gray-200 rounded-xl px-6 shadow-sm data-[state=open]:border-primary/50 transition-all">
-                <AccordionTrigger className="text-lg font-semibold text-gray-800 hover:no-underline py-6">
+              <AccordionItem key={idx} value={`item-${idx}`} className="bg-white/5 border border-white/10 rounded-xl px-6 shadow-sm data-[state=open]:border-primary/50 transition-all">
+                <AccordionTrigger className="text-lg font-semibold text-white hover:no-underline py-6 hover:text-primary transition-colors">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
+                <AccordionContent className="text-white/70 text-base leading-relaxed pb-6">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -531,7 +505,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer (Light) */}
       <footer className="bg-white border-t border-gray-100 pt-20 pb-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
