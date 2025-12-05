@@ -301,7 +301,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-8 max-w-3xl mx-auto"
+            className="text-4xl md:text-5xl font-bold mb-8 max-w-3xl mx-auto text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
