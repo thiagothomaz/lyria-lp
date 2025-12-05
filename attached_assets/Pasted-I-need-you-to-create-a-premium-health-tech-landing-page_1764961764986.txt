@@ -1,0 +1,233 @@
+I need you to create a premium health-tech landing page for Lyria, a telemedicine platform for weight management treatment. The design should convey medical trust, wellness, and effortless user experience through bold minimalism and strategic color accents.
+CRITICAL: Use the design.json above as your complete design system reference.
+
+Section 1: Hero
+Goal: Transmit medical trust, well-being, and sense of ease/security.
+Layout: 2 columns (asymmetric: 55/45 split)
+Background: #FFFFFF
+Column 1 (Text Column)
+
+Title (h1): "A forma mais simples, segura e rápida de iniciar seu tratamento de emagrecimento"
+
+Style: Bold (700), 56-72px desktop, dramatic presence, negative letter-spacing
+
+
+Subtitle: "A Lyria conecta você a médicos especialistas que avaliam sua saúde, prescrevem o tratamento ideal — quando indicado — e garantem acompanhamento contínuo durante toda sua jornada. Tudo 100% online e sem burocracia."
+
+Style: 20px, regular weight (400), #666666, generous line-height (1.6)
+
+
+CTA (Primary button): "Começar agora — avaliação médica online →"
+
+Style: Orange (#FF5722), 16px 32px padding, rounded-lg, bold (600), subtle lift on hover
+
+
+Badges (pill-shaped): Display below CTA
+
+"Consulta sem fila" | "Receita digital válida em todo o Brasil" | "Atendimento humanizado"
+Style: Light orange background (rgba(255, 87, 34, 0.1)), orange text, rounded-full
+
+
+
+Column 2 (Image)
+
+Generate modern health-tech hero composition:
+
+Professional woman (30s-40s) using smartphone, genuine smile
+Soft natural lighting, warm tones
+Can extend to edge of viewport for impact
+Abstract gradient elements (orange-coral) as subtle background decoration
+High editorial quality, authentic feel
+
+
+
+
+Section 2: Why Lyria
+Layout: 1 column with 3-card grid
+Background: #FAFAFA (off-white)
+Section padding: 128px vertical
+Title (h2): "Por que escolher a Lyria?"
+
+Style: 48-56px, bold (700), center-aligned, generous margin-bottom (48px)
+
+3 Cards (equal width, grid layout)
+Each card follows this structure:
+
+White background, 16px border-radius, subtle shadow
+Icon at top (32px, orange color, on light orange background circle)
+Title below icon (24px, semibold, 16px spacing from icon)
+Description (16px, #666, line-height 1.6)
+Hover: lift up 4px + intensify shadow
+
+Card 1
+
+Icon: Stethoscope (Lucide)
+Title: "Acompanhamento médico contínuo"
+Description: "Converse com médicos especialistas a qualquer momento para ajustar seu tratamento e tirar dúvidas com segurança."
+
+Card 2
+
+Icon: FileCheck (Lucide)
+Title: "Prescrição digital segura"
+Description: "Receba sua receita digital assinada com certificação ICP-Brasil e compre seus medicamentos em qualquer farmácia."
+
+Card 3
+
+Icon: Package (Lucide)
+Title: "Conveniência total"
+Description: "Compre sua medicação em farmácias parceiras e receba em casa — rápido, seguro e sem complicação."
+
+
+Section 3: Lyria Answers (Chat-style Section)
+Layout: 1 column, centered content (max-width: 900px)
+Background: #1C3F3A (dark green)
+Text color: #FFFFFF
+Section padding: 128px vertical
+Card (centered, white background, 900px max-width)
+
+Title (h2): "Tem dúvidas? A Lyria responde para você."
+
+Style: 48px, bold, dark text on white, margin-bottom: 32px
+
+
+
+Visual Component:
+
+Create ChatGPT-style minimal interface:
+
+Input field: Light gray background (#F5F5F5), rounded corners (12px), placeholder: "Pergunte qualquer coisa sobre seu tratamento"
+Style: Clean, modern, inviting
+
+
+
+Prompt Suggestions (below input):
+Display as interactive chips with hover effects (subtle lift + glow):
+
+"A medicação indicada é a ideal para mim?"
+"Quando devo renovar minha prescrição?"
+"Como funciona o acompanhamento médico?"
+"Quais são os efeitos esperados?"
+"Como organizar minha rotina para melhores resultados?"
+
+Chip style: Semi-transparent white background on dark section, white border, rounded-lg, smooth hover transitions
+
+Section 4: Safety & Compliance
+Layout: 2 columns (50/50)
+Background: Subtle textured gradient from #EBE8D8 to #F5F2E8
+Section padding: 128px vertical
+Column 1
+
+Title (h2): "Segurança e qualidade em cada etapa do seu cuidado."
+
+Style: 48-56px, bold, dark text, max-width: 500px
+
+
+
+Column 2 – Checklist Cards
+
+Display as vertical list with check icons (green #4CAF50, 20px)
+Each item: white card background, 12px spacing between items
+Items:
+
+"Telemedicina autorizada no Brasil"
+"Prescrição digital com assinatura ICP-Brasil"
+"Seus dados protegidos conforme LGPD"
+"Medicamentos adquiridos em farmácias regulamentadas pela ANVISA"
+"Pagamento 100% seguro"
+
+
+
+
+Section 5: Call To Action
+Background: #1C3F3A (dark green)
+Text color: #FFFFFF
+Section padding: 96px vertical
+Layout: Centered content, max-width 800px
+Title (h2): "Comece agora sua jornada de transformação com segurança médica."
+
+Style: 48px, bold, white, center-aligned, margin-bottom: 32px
+
+Checklist:
+
+✓ Avaliação médica completa
+✓ Receita digital válida em todo o Brasil
+✓ Acompanhamento contínuo
+✓ Processo simples, rápido e sem burocracia
+Style: White text with check marks, 18px font, center-aligned, spacing between items
+
+CTA Button: "Iniciar avaliação médica →"
+
+Style: Orange (#FF5722), large size (18px 40px padding), white text, center-aligned, prominent
+
+
+Section 6: Como Funciona
+Background: #FFFFFF
+Layout: 3-column grid (or 3 steps in sequence)
+Section padding: 128px vertical
+Title (h2): "Como funciona"
+
+Style: 48-56px, bold, center-aligned, margin-bottom: 64px
+
+Step 1: Consulta
+
+Number/icon indicator
+Title: "Consulta"
+Description: "Converse com um médico por mensagem, de forma rápida e segura — sem necessidade de agendamento."
+
+Step 2: Prescrição
+
+Title: "Prescrição"
+Description: "Caso haja indicação médica, você receberá sua receita digital personalizada."
+
+Step 3: Tratamento
+
+Title: "Tratamento"
+Description: "Compre sua medicação na farmácia parceira ou de sua preferência. Assinando pela plataforma, você recebe renovações gratuitas da receita."
+
+Style: Clean card design or numbered sequence, generous spacing, center-aligned
+
+Section 7: FAQ
+Background: #FAFAFA
+Layout: 1 column, centered, max-width 900px
+Section padding: 128px vertical
+Title (h2): "Perguntas frequentes"
+
+Style: 48px, bold, center-aligned, margin-bottom: 48px
+
+FAQ Items (accordion or cards):
+
+Como funciona a renovação da receita?
+"Quando estiver perto do vencimento, é só solicitar pelo chat médico — rápido e sem complicações."
+E se o médico entender que o tratamento não é indicado para mim?
+"Você receberá orientação completa e segura sobre os próximos passos."
+Onde compro o medicamento?
+"Com sua receita digital, é possível comprar nas farmácias parceiras ou em qualquer estabelecimento autorizado."
+É realmente seguro?
+"Sim. Todo o processo segue protocolos médicos oficiais, com prescrição individualizada e proteção total dos seus dados."
+
+Style: Clean accordion or card layout, smooth expand/collapse animations
+
+Section 8: Footer
+Background: #1C3F3A or #FFFFFF
+Layout: Multi-column grid
+Content:
+
+Lyria logo (left)
+Navigation links (center columns)
+Legal links (right): Política de Privacidade, Termos de Uso
+Informações legais de telemedicina
+Social media icons (optional)
+
+Style: Clean, organized, subtle borders, adequate spacing
+
+KEY DESIGN PRINCIPLES TO FOLLOW:
+
+Bold typography is the hero - Headlines should be dramatically large and confident
+Orange is precious - Use #FF5722 sparingly for CTAs and key accents only
+Whitespace is premium - Don't fear generous spacing (128px+ between sections)
+Soft shadows, not harsh borders - Create depth subtly
+Real, authentic imagery - Avoid stock photo clichés
+Smooth, purposeful animations - Everything should feel polished
+Mobile-first responsive - Stack gracefully, maintain generous spacing
+
+Generate all images with prompts that emphasize: professional quality, warm tones, natural lighting, authentic subjects, clean backgrounds, health-tech premium vibe.
