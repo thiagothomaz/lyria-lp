@@ -133,7 +133,7 @@ export default function Home() {
       )}
 
       {/* Section 1: Hero (Light) */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 pb-20 lg:pb-0">
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-white via-orange-50/30 to-white overflow-hidden pt-20 pb-20 lg:pb-0">
         <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block overflow-hidden">
            <motion.img
             style={{ y: heroY }}
