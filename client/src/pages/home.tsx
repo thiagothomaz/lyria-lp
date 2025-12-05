@@ -21,7 +21,7 @@ import {
 // Assets
 import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
-import penImage from "@assets/generated_images/sleek_modern_weight_loss_pen_injection_device.png";
+import penInjectionImage from "@assets/generated_images/person_holding_glp-1_pen_near_belly_for_injection.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -407,8 +407,8 @@ export default function Home() {
             >
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
                  <img 
-                   src={penImage} 
-                   alt="Caneta emagrecedora" 
+                   src={penInjectionImage} 
+                   alt="Pessoa aplicando caneta emagrecedora com dose 2.5mg selecionada" 
                    className="w-full h-auto object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-700" 
                  />
                  <div className="absolute bottom-12 left-12 bg-white/90 text-secondary px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
