@@ -79,80 +79,86 @@ export default function Home() {
       )}
 
       {/* Section 1: Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-           <img src={abstractBg} alt="" className="w-full h-full object-cover blur-3xl" />
+      <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block">
+           <img 
+            src={heroImage} 
+            alt="Mulher usando aplicativo de saúde" 
+            className="w-full h-full object-cover object-center"
+           />
+           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-white/0" />
+           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="container mx-auto px-6 relative z-10 pt-20 lg:pt-0">
+          <div className="grid lg:grid-cols-12 gap-12 items-center h-full">
             <motion.div 
-              className="lg:col-span-7 space-y-8"
+              className="lg:col-span-7 space-y-10 py-12 lg:py-0"
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
             >
-              <motion.h1 
-                className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.1] tracking-tight text-gray-900"
-                variants={fadeInUp}
-              >
-                A forma mais simples, segura e rápida de iniciar seu tratamento de emagrecimento
-              </motion.h1>
+              <motion.div variants={fadeInUp}>
+                <span className="inline-block py-1 px-3 rounded-full bg-orange-50 text-primary font-bold text-sm tracking-wide uppercase mb-6 border border-orange-100/50">
+                  Telemedicina Especializada
+                </span>
+                <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-gray-900">
+                  A forma mais simples de iniciar seu tratamento.
+                </h1>
+              </motion.div>
               
               <motion.p 
-                className="text-xl text-gray-600 leading-relaxed max-w-2xl"
+                className="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-xl font-light"
                 variants={fadeInUp}
               >
-                A Lyria conecta você a médicos especialistas que avaliam sua saúde, prescrevem o tratamento ideal — quando indicado — e garantem acompanhamento contínuo durante toda sua jornada. Tudo 100% online e sem burocracia.
+                Conectamos você a médicos especialistas para avaliação, prescrição e acompanhamento contínuo. <strong className="text-gray-900 font-semibold">100% online e seguro.</strong>
               </motion.p>
               
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4 items-start sm:items-center pt-4"
+                className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-2"
                 variants={fadeInUp}
               >
-                <button className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-4 rounded-xl font-bold transition-all shadow-xl shadow-primary/25 hover:translate-y-[-2px] flex items-center gap-2 group">
-                  Começar agora — avaliação médica online
+                <button className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 hover:translate-y-[-2px] flex items-center gap-3 group w-full sm:w-auto justify-center">
+                  Iniciar avaliação
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
+                <div className="flex items-center gap-3 text-sm font-medium text-gray-500 px-2">
+                  <div className="flex -space-x-2">
+                     {[1,2,3].map(i => (
+                       <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-gray-500">
+                         {i === 3 ? '+' : ''}
+                       </div>
+                     ))}
+                  </div>
+                  <p>+2k pacientes atendidos</p>
+                </div>
               </motion.div>
 
               <motion.div 
-                className="flex flex-wrap gap-3 pt-4"
+                className="flex flex-wrap gap-3 pt-4 border-t border-gray-100 mt-8"
                 variants={fadeInUp}
               >
-                {["Consulta sem fila", "Receita digital válida em todo o Brasil", "Atendimento humanizado"].map((badge) => (
-                  <span key={badge} className="inline-flex items-center px-4 py-2 rounded-full bg-orange-50 text-primary text-sm font-semibold">
+                {["Consulta sem fila", "Receita digital nacional", "Suporte contínuo"].map((badge) => (
+                  <div key={badge} className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
+                    <Check size={14} className="text-primary" />
                     {badge}
-                  </span>
+                  </div>
                 ))}
               </motion.div>
             </motion.div>
-
+            
+            {/* Mobile Image */}
             <motion.div 
-              className="lg:col-span-5 relative"
+              className="lg:hidden rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl relative"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ delay: 0.4 }}
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-soft-xl aspect-[4/5]">
-                <img 
-                  src={heroImage} 
-                  alt="Mulher usando aplicativo de saúde" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-              </div>
-              
-              {/* Floating Elements decoration */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-forwards opacity-0">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                  <ShieldCheck size={20} />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 font-medium">Segurança</p>
-                  <p className="text-sm font-bold text-gray-900">Dados Protegidos</p>
-                </div>
-              </div>
+              <img 
+                src={heroImage} 
+                alt="Mulher usando aplicativo de saúde" 
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </div>
         </div>
@@ -211,7 +217,7 @@ export default function Home() {
       <section className="py-32 bg-secondary text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12">Tem dúvidas? A Lyria responde para você.</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white">Tem dúvidas? A Lyria responde para você.</h2>
             
             <div className="bg-white rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto mb-12 transform transition-transform hover:scale-[1.01]">
               <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4 border border-gray-200">
