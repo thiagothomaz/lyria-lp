@@ -133,7 +133,7 @@ export default function Home() {
       )}
 
       {/* Section 1: Hero (Light) */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 pb-20 lg:pb-0">
         <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block overflow-hidden">
            <motion.img
             style={{ y: heroY }}
@@ -188,7 +188,7 @@ export default function Home() {
                 variants={fadeInUp}
               >
                 <motion.button 
-                  className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3 group w-full sm:w-auto justify-center relative overflow-hidden"
+                  className="bg-primary hover:bg-primary/90 text-white text-base px-6 py-4 md:text-lg md:px-10 md:py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3 group w-full sm:w-auto justify-center relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
