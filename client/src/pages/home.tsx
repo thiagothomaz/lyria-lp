@@ -21,7 +21,7 @@ import {
 // Assets
 import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
-import penInjectionImage from "@assets/generated_images/person_holding_glp-1_pen_near_belly_for_injection.png";
+import penInjectionImage from "@assets/glp1_1764964075234.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
