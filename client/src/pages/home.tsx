@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { 
   Stethoscope, 
   FileCheck, 
@@ -23,8 +23,8 @@ import heroImage from "@assets/generated_images/professional_woman_using_smartph
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 };
 
 const staggerContainer = {
@@ -32,35 +32,84 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.15,
+      delayChildren: 0.1
     }
+  }
+};
+
+const floatingAnimation = {
+  y: [-10, 10],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    repeatType: "reverse" as const,
+    ease: "easeInOut"
   }
 };
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background font-sans text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[60]"
+        style={{ scaleX }}
+      />
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">L</div>
-            <span className="text-2xl font-bold tracking-tight text-secondary">Lyria</span>
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+              L
+            </div>
+            <span className="text-2xl font-bold tracking-tight text-secondary">
+              Lyria
+            </span>
           </div>
-          
+
           <div className="hidden md:flex items-center gap-8">
-            <a href="#como-funciona" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Como funciona</a>
-            <a href="#seguranca" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Segurança</a>
-            <a href="#faq" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Dúvidas</a>
-            <button className="text-sm font-semibold text-primary hover:underline">Login</button>
+            <a
+              href="#como-funciona"
+              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            >
+              Como funciona
+            </a>
+            <a
+              href="#seguranca"
+              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            >
+              Segurança
+            </a>
+            <a
+              href="#faq"
+              className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
+            >
+              Dúvidas
+            </a>
+            <button className="text-sm font-semibold text-primary hover:underline">
+              Login
+            </button>
             <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:translate-y-[-1px]">
               Começar avaliação
             </button>
           </div>
 
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -70,24 +119,47 @@ export default function Home() {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-white z-40 pt-24 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-lg font-medium">
-            <a href="#como-funciona" onClick={() => setIsMenuOpen(false)}>Como funciona</a>
-            <a href="#seguranca" onClick={() => setIsMenuOpen(false)}>Segurança</a>
-            <a href="#faq" onClick={() => setIsMenuOpen(false)}>Dúvidas</a>
-            <button className="bg-primary text-white py-3 rounded-lg font-semibold mt-4">Começar avaliação</button>
+            <a href="#como-funciona" onClick={() => setIsMenuOpen(false)}>
+              Como funciona
+            </a>
+            <a href="#seguranca" onClick={() => setIsMenuOpen(false)}>
+              Segurança
+            </a>
+            <a href="#faq" onClick={() => setIsMenuOpen(false)}>
+              Dúvidas
+            </a>
+            <button className="bg-primary text-white py-3 rounded-lg font-semibold mt-4">
+              Começar avaliação
+            </button>
           </div>
         </div>
       )}
 
       {/* Section 1: Hero */}
       <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
-        <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block">
-           <img 
+        <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block overflow-hidden">
+           <motion.img
+            style={{ y: heroY }}
             src={heroImage} 
             alt="Mulher usando aplicativo de saúde" 
-            className="w-full h-full object-cover object-center"
+            className="w-full h-[120%] object-cover object-center -mt-10"
            />
            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-white/0" />
            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
+           
+           {/* Floating Badge in Hero */}
+           <motion.div 
+             className="absolute bottom-20 left-20 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center gap-3 max-w-xs border border-white/50"
+             animate={floatingAnimation}
+           >
+             <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner">
+               <ShieldCheck size={20} />
+             </div>
+             <div>
+               <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Segurança Garantida</p>
+               <p className="text-sm font-bold text-gray-900">Dados 100% Protegidos</p>
+             </div>
+           </motion.div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -103,7 +175,7 @@ export default function Home() {
                   Telemedicina Especializada
                 </span>
                 <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-gray-900">
-                  A forma mais simples de iniciar seu tratamento.
+                  Comece hoje seu tratamento
                 </h1>
               </motion.div>
               
@@ -111,17 +183,25 @@ export default function Home() {
                 className="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-xl font-light"
                 variants={fadeInUp}
               >
-                Conectamos você a médicos especialistas para avaliação, prescrição e acompanhamento contínuo. <strong className="text-gray-900 font-semibold">100% online e seguro.</strong>
+                Conectamos você a médicos especialistas para avaliação e prescrição para sua caneta de emagrecimento. <strong className="text-gray-900 font-semibold">100% online e seguro.</strong>
               </motion.p>
               
               <motion.div 
                 className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-2"
                 variants={fadeInUp}
               >
-                <button className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 hover:translate-y-[-2px] flex items-center gap-3 group w-full sm:w-auto justify-center">
-                  Iniciar avaliação
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <motion.button 
+                  className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3 group w-full sm:w-auto justify-center relative overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Iniciar avaliação
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                </motion.button>
+                
                 <div className="flex items-center gap-3 text-sm font-medium text-gray-500 px-2">
                   <div className="flex -space-x-2">
                      {[1,2,3].map(i => (
@@ -139,10 +219,14 @@ export default function Home() {
                 variants={fadeInUp}
               >
                 {["Consulta sem fila", "Receita digital nacional", "Suporte contínuo"].map((badge) => (
-                  <div key={badge} className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
+                  <motion.div 
+                    key={badge} 
+                    className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-gray-50 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors cursor-default"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <Check size={14} className="text-primary" />
                     {badge}
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             </motion.div>
@@ -159,6 +243,21 @@ export default function Home() {
                 alt="Mulher usando aplicativo de saúde" 
                 className="w-full h-full object-cover"
               />
+              {/* Mobile Floating Badge */}
+              <motion.div 
+                 className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg flex items-center gap-3 border border-white/50"
+                 initial={{ y: 20, opacity: 0 }}
+                 animate={{ y: 0, opacity: 1 }}
+                 transition={{ delay: 0.8 }}
+               >
+                 <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner shrink-0">
+                   <ShieldCheck size={16} />
+                 </div>
+                 <div>
+                   <p className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Segurança</p>
+                   <p className="text-xs font-bold text-gray-900">Dados Protegidos</p>
+                 </div>
+               </motion.div>
             </motion.div>
           </div>
         </div>
@@ -196,13 +295,14 @@ export default function Home() {
             ].map((card, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 group"
-                initial={{ opacity: 0, y: 20 }}
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-soft-lg transition-all duration-300 group"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: idx * 0.15, duration: 0.5 }}
+                whileHover={{ y: -8 }}
               >
-                <div className="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
                   <card.icon size={28} />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">{card.title}</h3>
@@ -219,7 +319,13 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white">Tem dúvidas? A Lyria responde para você.</h2>
             
-            <div className="bg-white rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto mb-12 transform transition-transform hover:scale-[1.01]">
+            <motion.div 
+              className="bg-white rounded-2xl p-2 shadow-2xl max-w-2xl mx-auto mb-12"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", bounce: 0.4 }}
+            >
               <div className="bg-gray-50 rounded-xl p-4 flex items-center gap-4 border border-gray-200">
                 <div className="bg-primary/10 p-2 rounded-lg">
                   <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">L</div>
@@ -234,7 +340,7 @@ export default function Home() {
                   <Send size={20} />
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             <div className="flex flex-wrap justify-center gap-3">
               {[
@@ -243,13 +349,18 @@ export default function Home() {
                 "Como funciona o acompanhamento médico?",
                 "Quais são os efeitos esperados?",
                 "Como organizar minha rotina?"
-              ].map((chip) => (
-                <button 
+              ].map((chip, idx) => (
+                <motion.button 
                   key={chip}
-                  className="px-5 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200 backdrop-blur-sm"
+                  className="px-5 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20 transition-all duration-200 backdrop-blur-sm"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + (idx * 0.1) }}
+                  whileHover={{ y: -2, backgroundColor: "rgba(255,255,255,0.2)" }}
                 >
                   {chip}
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -284,6 +395,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.02, x: 5 }}
                 >
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                     <Check size={16} className="text-green-600 stroke-[3]" />
@@ -324,9 +436,12 @@ export default function Home() {
           </div>
 
           <motion.button 
-            className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20 hover:scale-105"
+            className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
           >
             Iniciar avaliação médica →
           </motion.button>
@@ -366,8 +481,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="w-24 h-24 bg-white rounded-full border-4 border-orange-50 flex items-center justify-center mx-auto mb-8 shadow-sm relative z-10">
+                <div className="w-24 h-24 bg-white rounded-full border-4 border-orange-50 flex items-center justify-center mx-auto mb-8 shadow-sm relative z-10 transition-transform duration-300 group-hover:scale-110">
                   <span className="text-4xl font-bold text-primary">{item.step}</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">{item.title}</h3>
