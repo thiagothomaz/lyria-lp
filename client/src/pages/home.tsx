@@ -22,7 +22,7 @@ import {
 import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
 import penInjectionImage from "@assets/glp1_1764964075234.png";
-import lyriaLogo from "@assets/Frame_2_1764964396826.png";
+import lyriaLogo from "@assets/Frame_4_1764965625947.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
