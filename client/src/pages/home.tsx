@@ -79,7 +79,7 @@ export default function Home() {
       )}
 
       {/* Section 1: Hero */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20">
         <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block">
            <img 
             src={heroImage} 
@@ -90,7 +90,7 @@ export default function Home() {
            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
         
-        <div className="container mx-auto px-6 relative z-10 pt-20 lg:pt-0">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center h-full">
             <motion.div 
               className="lg:col-span-7 space-y-10 py-12 lg:py-0"
