@@ -22,6 +22,7 @@ import {
 import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
 import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
 import penInjectionImage from "@assets/glp1_1764964075234.png";
+import lyriaLogo from "@assets/Frame_2_1764964396826.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -72,12 +73,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-              L
-            </div>
-            <span className="text-2xl font-bold tracking-tight text-secondary">
-              Lyria
-            </span>
+            <img src={lyriaLogo} alt="Lyria Logo" className="h-8 w-auto" />
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -511,8 +507,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">L</div>
-                <span className="text-2xl font-bold tracking-tight text-secondary">Lyria</span>
+                <img src={lyriaLogo} alt="Lyria Logo" className="h-8 w-auto" />
               </div>
               <p className="text-gray-500 max-w-sm leading-relaxed">
                 Transformando vidas através da medicina baseada em evidências e tecnologia humanizada.
