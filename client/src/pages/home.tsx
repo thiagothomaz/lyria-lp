@@ -98,12 +98,18 @@ export default function Home() {
             >
               Dúvidas
             </a>
-            <button className="text-sm font-semibold text-primary hover:underline">
+            <a
+              href="#login"
+              className="text-sm font-medium text-gray-600 text-primary transition-colors hover:underline"
+            >
               Login
-            </button>
-            <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:translate-y-[-1px]">
+            </a>
+            <a
+              href="https://app.lyriacare.com/sign-up"
+              className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:translate-y-[-1px]"
+            >
               Começar avaliação
-            </button>
+            </a>
           </div>
 
           <button
@@ -128,9 +134,12 @@ export default function Home() {
             <a href="#faq" onClick={() => setIsMenuOpen(false)}>
               Dúvidas
             </a>
-            <button className="bg-primary text-white py-3 rounded-lg font-semibold mt-4">
+            <a
+              href="https://app.lyriacare.com/sign-up"
+              className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-primary/20 hover:translate-y-[-1px]"
+            >
               Começar avaliação
-            </button>
+            </a>
           </div>
         </div>
       )}
@@ -195,7 +204,8 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-2"
                 variants={fadeInUp}
               >
-                <motion.button
+                <motion.a
+                  href="https://app.lyriacare.com/sign-up"
                   className="bg-primary hover:bg-primary/90 text-white text-base px-6 py-4 md:text-lg md:px-10 md:py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3 group w-full sm:w-auto justify-center relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -205,7 +215,7 @@ export default function Home() {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                </motion.button>
+                </motion.a>
 
                 <div className="flex items-center gap-3 text-sm font-medium text-gray-500 px-2">
                   <div className="flex -space-x-2">
@@ -336,6 +346,168 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section: Before & After Transformation */}
+      <section className="py-32 bg-gradient-to-b from-white via-orange-50/50 to-white overflow-hidden">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="text-center max-w-3xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-block py-1 px-3 rounded-full bg-orange-50 text-primary font-bold text-sm tracking-wide uppercase mb-6 border border-orange-100/50">
+              Resultados Reais
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Transformações que inspiram
+            </h2>
+            <p className="text-xl text-gray-500 leading-relaxed">
+              Veja como nossas pacientes alcançaram seus objetivos com
+              acompanhamento médico especializado.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="max-w-5xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+              <div className="grid md:grid-cols-2">
+                {/* Before */}
+                <motion.div
+                  className="relative group"
+                  initial={{ x: -30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="aspect-[3/4] relative overflow-hidden">
+                    <img
+                      src="antes.png"
+                      alt="Antes do tratamento"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <span className="inline-block bg-gray-800/80 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold mb-3">
+                        ANTES
+                      </span>
+                      <p className="text-white/90 text-lg font-medium">
+                        Início do tratamento
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* After */}
+                <motion.div
+                  className="relative group"
+                  initial={{ x: 30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="aspect-[3/4] relative overflow-hidden">
+                    <img
+                      src="depois2.png"
+                      alt="Depois do tratamento"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                      <span className="inline-block bg-primary backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold mb-3">
+                        DEPOIS
+                      </span>
+                      <p className="text-white/90 text-lg font-medium">
+                        6 meses de acompanhamento
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Center Divider with Arrow */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex">
+                  <motion.div
+                    className="w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center border-4 border-primary"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, type: "spring" }}
+                  >
+                    <ArrowRight className="w-6 h-6 text-primary" />
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Stats Bar */}
+              <motion.div
+                className="bg-gradient-to-r from-orange-50 via-white to-orange-50 p-6 md:p-8 border-t border-gray-100"
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
+                  <div>
+                    <p className="text-2xl md:text-4xl font-bold text-primary mb-1">
+                      -25kg
+                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 font-medium">
+                      Perda de peso
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-2xl md:text-4xl font-bold text-primary mb-1">
+                      6 meses
+                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 font-medium">
+                      De tratamento
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-2xl md:text-4xl font-bold text-primary mb-1">
+                      100%
+                    </p>
+                    <p className="text-xs md:text-sm text-gray-500 font-medium">
+                      Satisfação
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Testimonial Quote */}
+            <motion.div
+              className="mt-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+            >
+              <blockquote className="text-xl md:text-2xl text-gray-600 italic max-w-3xl mx-auto leading-relaxed">
+                "Com a Lyria, finalmente consegui um acompanhamento médico que
+                entende minhas necessidades. A transformação foi além do peso —
+                mudou minha vida!"
+              </blockquote>
+              <div className="mt-6 flex items-center justify-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-orange-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  M
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-gray-900">Maria S.</p>
+                  <p className="text-sm text-gray-500">
+                    Paciente Lyria • São Paulo
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Section 3: Safety & Compliance (Light) */}
       <section
         id="seguranca"
@@ -354,10 +526,8 @@ export default function Home() {
 
             <div className="space-y-4">
               {[
-                "Telemedicina autorizada no Brasil",
                 "Prescrição digital com assinatura ICP-Brasil",
                 "Seus dados protegidos conforme LGPD",
-                "Medicamentos adquiridos em farmácias regulamentadas pela ANVISA",
                 "Pagamento 100% seguro",
               ].map((item, idx) => (
                 <motion.div
@@ -413,7 +583,8 @@ export default function Home() {
                 ))}
               </div>
 
-              <motion.button
+              <motion.a
+                href="https://app.lyriacare.com/sign-up"
                 className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -422,7 +593,7 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 Iniciar avaliação médica →
-              </motion.button>
+              </motion.a>
             </div>
 
             <motion.div
