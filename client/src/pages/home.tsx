@@ -1,15 +1,15 @@
 import React from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { 
-  Stethoscope, 
-  FileCheck, 
-  Package, 
-  ArrowRight, 
-  Check, 
+import {
+  Stethoscope,
+  FileCheck,
+  Package,
+  ArrowRight,
+  Check,
   Send,
   Menu,
   X,
-  ShieldCheck
+  ShieldCheck,
 } from "lucide-react";
 import {
   Accordion,
@@ -19,14 +19,17 @@ import {
 } from "@/components/ui/accordion";
 
 // Assets
-import heroImage from "@assets/generated_images/professional_woman_using_smartphone_for_health_app.png";
-import abstractBg from "@assets/generated_images/abstract_orange_and_coral_gradient_background.png";
-import penInjectionImage from "@assets/glp1_1764964075234.png";
-import lyriaLogo from "@assets/Frame_4_1764965625947.png";
+import heroImage from "/hero.jpg";
+import penInjectionImage from "/glp1-banner.jpg";
+import lyriaLogo from "/logo.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" as const },
+  },
 };
 
 const staggerContainer = {
@@ -35,9 +38,9 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
+      delayChildren: 0.1,
+    },
+  },
 };
 
 const floatingAnimation = {
@@ -46,8 +49,8 @@ const floatingAnimation = {
     duration: 4,
     repeat: Infinity,
     repeatType: "reverse" as const,
-    ease: "easeInOut" as const
-  }
+    ease: "easeInOut" as const,
+  },
 };
 
 export default function Home() {
@@ -56,7 +59,7 @@ export default function Home() {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const heroY = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
@@ -135,33 +138,37 @@ export default function Home() {
       {/* Section 1: Hero (Light) */}
       <section className="relative min-h-screen flex items-center bg-gradient-to-br from-white via-orange-50/30 to-white overflow-hidden pt-20 pb-20 lg:pb-0">
         <div className="absolute top-0 right-0 w-[45%] h-full hidden lg:block overflow-hidden">
-           <motion.img
+          <motion.img
             style={{ y: heroY }}
-            src={heroImage} 
-            alt="Mulher usando aplicativo de saúde" 
+            src={heroImage}
+            alt="Mulher usando aplicativo de saúde"
             className="w-full h-[120%] object-cover object-center -mt-10"
-           />
-           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-white/0" />
-           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
-           
-           {/* Floating Badge in Hero */}
-           <motion.div 
-             className="absolute bottom-20 left-20 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center gap-3 max-w-xs border border-white/50"
-             animate={floatingAnimation}
-           >
-             <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner">
-               <ShieldCheck size={20} />
-             </div>
-             <div>
-               <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Segurança Garantida</p>
-               <p className="text-sm font-bold text-gray-900">Dados 100% Protegidos</p>
-             </div>
-           </motion.div>
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent lg:via-white/0" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent" />
+
+          {/* Floating Badge in Hero */}
+          <motion.div
+            className="absolute bottom-20 left-20 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center gap-3 max-w-xs border border-white/50"
+            animate={floatingAnimation}
+          >
+            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner">
+              <ShieldCheck size={20} />
+            </div>
+            <div>
+              <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">
+                Segurança Garantida
+              </p>
+              <p className="text-sm font-bold text-gray-900">
+                Dados 100% Protegidos
+              </p>
+            </div>
+          </motion.div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center h-full">
-            <motion.div 
+            <motion.div
               className="lg:col-span-7 space-y-10 py-12 lg:py-0"
               initial="hidden"
               animate="visible"
@@ -172,22 +179,23 @@ export default function Home() {
                   Telemedicina Especializada
                 </span>
                 <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-gray-900">
-                  Comece hoje seu tratamento
+                  Comece hoje seu tratamento com a Lyria.
                 </h1>
               </motion.div>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-xl font-light"
                 variants={fadeInUp}
               >
-                Conectamos você a médicos especialistas para avaliação e prescrição para sua caneta de emagrecimento. <strong className="text-gray-900 font-semibold">100% online e seguro.</strong>
+                Conectamos você a médicos especialistas para avaliação e
+                prescrição da sua caneta de emagrecimento.
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-2"
                 variants={fadeInUp}
               >
-                <motion.button 
+                <motion.button
                   className="bg-primary hover:bg-primary/90 text-white text-base px-6 py-4 md:text-lg md:px-10 md:py-5 rounded-2xl font-bold transition-all shadow-xl shadow-primary/20 flex items-center gap-3 group w-full sm:w-auto justify-center relative overflow-hidden"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -198,26 +206,33 @@ export default function Home() {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                 </motion.button>
-                
+
                 <div className="flex items-center gap-3 text-sm font-medium text-gray-500 px-2">
                   <div className="flex -space-x-2">
-                     {[1,2,3].map(i => (
-                       <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-gray-500">
-                         {i === 3 ? '+' : ''}
-                       </div>
-                     ))}
+                    {[1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-gray-500"
+                      >
+                        {i === 3 ? "+" : ""}
+                      </div>
+                    ))}
                   </div>
                   <p>+2k pacientes atendidos</p>
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-3 pt-4 border-t border-gray-100 mt-8"
                 variants={fadeInUp}
               >
-                {["Consulta sem fila", "Receita digital nacional", "Suporte contínuo"].map((badge) => (
-                  <motion.div 
-                    key={badge} 
+                {[
+                  "Consulta sem fila",
+                  "Receita digital nacional",
+                  "Suporte contínuo",
+                ].map((badge) => (
+                  <motion.div
+                    key={badge}
                     className="flex items-center gap-2 text-sm font-medium text-gray-600 bg-gray-50 px-4 py-2 rounded-lg hover:bg-orange-50 transition-colors cursor-default"
                     whileHover={{ scale: 1.05 }}
                   >
@@ -227,34 +242,38 @@ export default function Home() {
                 ))}
               </motion.div>
             </motion.div>
-            
+
             {/* Mobile Image */}
-            <motion.div 
+            <motion.div
               className="lg:hidden rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl relative"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <img 
-                src={heroImage} 
-                alt="Mulher usando aplicativo de saúde" 
+              <img
+                src={heroImage}
+                alt="Mulher usando aplicativo de saúde"
                 className="w-full h-full object-cover"
               />
               {/* Mobile Floating Badge */}
-              <motion.div 
-                 className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg flex items-center gap-3 border border-white/50"
-                 initial={{ y: 20, opacity: 0 }}
-                 animate={{ y: 0, opacity: 1 }}
-                 transition={{ delay: 0.8 }}
-               >
-                 <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner shrink-0">
-                   <ShieldCheck size={16} />
-                 </div>
-                 <div>
-                   <p className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Segurança</p>
-                   <p className="text-xs font-bold text-gray-900">Dados Protegidos</p>
-                 </div>
-               </motion.div>
+              <motion.div
+                className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg flex items-center gap-3 border border-white/50"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 shadow-inner shrink-0">
+                  <ShieldCheck size={16} />
+                </div>
+                <div>
+                  <p className="text-[10px] text-gray-500 font-medium uppercase tracking-wider">
+                    Segurança
+                  </p>
+                  <p className="text-xs font-bold text-gray-900">
+                    Dados Protegidos
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -263,13 +282,15 @@ export default function Home() {
       {/* Section 2: Why Lyria (Dark) */}
       <section className="py-32 bg-secondary text-white">
         <div className="container mx-auto px-6">
-          <motion.div 
+          <motion.div
             className="text-center max-w-3xl mx-auto mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Por que escolher a Lyria?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Por que escolher a Lyria?
+            </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -277,18 +298,18 @@ export default function Home() {
               {
                 icon: Stethoscope,
                 title: "Acompanhamento médico contínuo",
-                desc: "Converse com médicos especialistas a qualquer momento para ajustar seu tratamento e tirar dúvidas com segurança."
+                desc: "Converse com médicos especialistas a qualquer momento para ajustar seu tratamento e tirar dúvidas com segurança.",
               },
               {
                 icon: FileCheck,
                 title: "Prescrição digital segura",
-                desc: "Receba sua receita digital assinada com certificação ICP-Brasil e compre seus medicamentos em qualquer farmácia."
+                desc: "Receba sua receita digital assinada com certificação ICP-Brasil e compre seus medicamentos em qualquer farmácia.",
               },
               {
                 icon: Package,
                 title: "Conveniência total",
-                desc: "Compre sua medicação em farmácias parceiras e receba em casa — rápido, seguro e sem complicação."
-              }
+                desc: "Compre sua medicação em farmácias parceiras e receba em casa — rápido, seguro e sem complicação.",
+              },
             ].map((card, idx) => (
               <motion.div
                 key={idx}
@@ -297,12 +318,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15, duration: 0.5 }}
-                whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.15)" }}
+                whileHover={{
+                  y: -8,
+                  backgroundColor: "rgba(255,255,255,0.15)",
+                }}
               >
                 <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                   <card.icon size={28} />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white">{card.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">
+                  {card.title}
+                </h3>
                 <p className="text-white/70 leading-relaxed">{card.desc}</p>
               </motion.div>
             ))}
@@ -311,10 +337,13 @@ export default function Home() {
       </section>
 
       {/* Section 3: Safety & Compliance (Light) */}
-      <section id="seguranca" className="py-32 bg-gradient-to-b from-[#EBE8D8] to-[#F5F2E8]">
+      <section
+        id="seguranca"
+        className="py-32 bg-gradient-to-b from-[#EBE8D8] to-[#F5F2E8]"
+      >
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -329,9 +358,9 @@ export default function Home() {
                 "Prescrição digital com assinatura ICP-Brasil",
                 "Seus dados protegidos conforme LGPD",
                 "Medicamentos adquiridos em farmácias regulamentadas pela ANVISA",
-                "Pagamento 100% seguro"
+                "Pagamento 100% seguro",
               ].map((item, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   className="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border border-gray-100/50"
                   initial={{ opacity: 0, x: 20 }}
@@ -343,7 +372,9 @@ export default function Home() {
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center shrink-0">
                     <Check size={16} className="text-green-600 stroke-[3]" />
                   </div>
-                  <span className="text-lg font-medium text-gray-700">{item}</span>
+                  <span className="text-lg font-medium text-gray-700">
+                    {item}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -357,7 +388,7 @@ export default function Home() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-left">
-              <motion.h2 
+              <motion.h2
                 className="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -371,7 +402,7 @@ export default function Home() {
                   "Avaliação médica completa",
                   "Receita digital válida em todo o Brasil",
                   "Acompanhamento contínuo",
-                  "Processo simples, rápido e sem burocracia"
+                  "Processo simples, rápido e sem burocracia",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="bg-primary/20 p-1 rounded-full">
@@ -382,7 +413,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <motion.button 
+              <motion.button
                 className="bg-primary hover:bg-primary/90 text-white text-xl px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-black/20"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -402,14 +433,14 @@ export default function Home() {
               className="relative"
             >
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-                 <img 
-                   src={penInjectionImage} 
-                   alt="Pessoa aplicando caneta emagrecedora com dose 2.5mg selecionada" 
-                   className="w-full h-auto object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-700" 
-                 />
-                 <div className="absolute bottom-12 left-12 bg-white/90 text-secondary px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
-                   Tecnologia Avançada
-                 </div>
+                <img
+                  src={penInjectionImage}
+                  alt="Pessoa aplicando caneta emagrecedora com dose 2.5mg selecionada"
+                  className="w-full h-auto object-cover rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute bottom-12 left-12 bg-white/90 text-secondary px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
+                  Tecnologia Avançada
+                </div>
               </div>
               {/* Decorative background glow */}
               <div className="absolute -inset-4 bg-primary/20 blur-3xl -z-10 rounded-full" />
@@ -421,8 +452,10 @@ export default function Home() {
       {/* Section 5: How it Works (Light) */}
       <section id="como-funciona" className="py-32 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-gray-900">Como funciona</h2>
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-gray-900">
+            Como funciona
+          </h2>
+
           <div className="grid md:grid-cols-3 gap-12 relative">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-orange-100 -z-10"></div>
@@ -431,20 +464,20 @@ export default function Home() {
               {
                 step: "1",
                 title: "Consulta",
-                desc: "Converse com um médico por mensagem, de forma rápida e segura — sem necessidade de agendamento."
+                desc: "Converse com um médico por mensagem, de forma rápida e segura — sem necessidade de agendamento.",
               },
               {
                 step: "2",
                 title: "Prescrição",
-                desc: "Caso haja indicação médica, você receberá sua receita digital personalizada."
+                desc: "Caso haja indicação médica, você receberá sua receita digital personalizada.",
               },
               {
                 step: "3",
                 title: "Tratamento",
-                desc: "Compre sua medicação na farmácia parceira ou de sua preferência. Assinando pela plataforma, você recebe renovações gratuitas."
-              }
+                desc: "Compre sua medicação na farmácia parceira ou de sua preferência. Assinando pela plataforma, você recebe renovações gratuitas.",
+              },
             ].map((item, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 className="text-center bg-white"
                 initial={{ opacity: 0, y: 20 }}
@@ -454,10 +487,16 @@ export default function Home() {
                 whileHover={{ y: -5 }}
               >
                 <div className="w-24 h-24 bg-white rounded-full border-4 border-orange-50 flex items-center justify-center mx-auto mb-8 shadow-sm relative z-10 transition-transform duration-300 group-hover:scale-110">
-                  <span className="text-4xl font-bold text-primary">{item.step}</span>
+                  <span className="text-4xl font-bold text-primary">
+                    {item.step}
+                  </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed px-4">{item.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed px-4">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -467,28 +506,34 @@ export default function Home() {
       {/* Section 6: FAQ (Dark) */}
       <section id="faq" className="py-32 bg-secondary">
         <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">Perguntas frequentes</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+            Perguntas frequentes
+          </h2>
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
               {
                 q: "Como funciona a renovação da receita?",
-                a: "Quando estiver perto do vencimento, é só solicitar pelo chat médico — rápido e sem complicações. Nossa equipe avaliará seu progresso e emitirá a nova prescrição se adequado."
+                a: "Quando estiver perto do vencimento, é só solicitar pelo chat médico — rápido e sem complicações. Nossa equipe avaliará seu progresso e emitirá a nova prescrição se adequado.",
               },
               {
                 q: "E se o médico entender que o tratamento não é indicado para mim?",
-                a: "Você receberá orientação completa e segura sobre os próximos passos e alternativas mais adequadas para o seu perfil de saúde. Sua segurança é nossa prioridade."
+                a: "Você receberá orientação completa e segura sobre os próximos passos e alternativas mais adequadas para o seu perfil de saúde. Sua segurança é nossa prioridade.",
               },
               {
                 q: "Onde compro o medicamento?",
-                a: "Com sua receita digital, é possível comprar nas farmácias parceiras com descontos exclusivos ou em qualquer estabelecimento autorizado de sua preferência."
+                a: "Com sua receita digital, é possível comprar nas farmácias parceiras com descontos exclusivos ou em qualquer estabelecimento autorizado de sua preferência.",
               },
               {
                 q: "É realmente seguro?",
-                a: "Sim. Todo o processo segue protocolos médicos oficiais, com prescrição individualizada e proteção total dos seus dados conforme a LGPD. Todos os nossos médicos são certificados."
-              }
+                a: "Sim. Todo o processo segue protocolos médicos oficiais, com prescrição individualizada e proteção total dos seus dados conforme a LGPD. Todos os nossos médicos são certificados.",
+              },
             ].map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="bg-white/5 border border-white/10 rounded-xl px-6 shadow-sm data-[state=open]:border-primary/50 transition-all">
+              <AccordionItem
+                key={idx}
+                value={`item-${idx}`}
+                className="bg-white/5 border border-white/10 rounded-xl px-6 shadow-sm data-[state=open]:border-primary/50 transition-all"
+              >
                 <AccordionTrigger className="text-lg font-semibold text-white hover:no-underline py-6 hover:text-primary transition-colors">
                   {faq.q}
                 </AccordionTrigger>
@@ -510,33 +555,65 @@ export default function Home() {
                 <img src={lyriaLogo} alt="Lyria Logo" className="h-8 w-auto" />
               </div>
               <p className="text-gray-500 max-w-sm leading-relaxed">
-                Transformando vidas através da medicina baseada em evidências e tecnologia humanizada.
+                Transformando vidas através da medicina baseada em evidências e
+                tecnologia humanizada.
               </p>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-gray-900 mb-6">Links Úteis</h4>
               <ul className="space-y-4 text-gray-600">
-                <li><a href="#como-funciona" className="hover:text-primary transition-colors">Como funciona</a></li>
-                <li><a href="#seguranca" className="hover:text-primary transition-colors">Segurança</a></li>
-                <li><a href="#faq" className="hover:text-primary transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Login</a></li>
+                <li>
+                  <a
+                    href="#como-funciona"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Como funciona
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#seguranca"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Segurança
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    className="hover:text-primary transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Login
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-gray-900 mb-6">Legal</h4>
               <ul className="space-y-4 text-gray-600">
-                <li><a href="#" className="hover:text-primary transition-colors">Termos de Uso</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Política de Privacidade</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Responsabilidade Médica</a></li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Termos de Uso
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition-colors">
+                    Política de Privacidade
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>© 2025 Lyria Health Tech. Todos os direitos reservados.</p>
-            <p>Diretor Técnico Médico: Dr. Exemplo CRM/SP 000000</p>
+            <p>© 2025 Lyria. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
