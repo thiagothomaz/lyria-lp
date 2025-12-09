@@ -99,7 +99,7 @@ export default function Home() {
               Dúvidas
             </a>
             <a
-              href="#login"
+              href="https://app.lyriacare.com/login"
               className="text-sm font-medium text-gray-600 text-primary transition-colors hover:underline"
             >
               Login
@@ -759,7 +759,10 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <a
+                    href="https://app.lyriacare.com/login"
+                    className="hover:text-primary transition-colors"
+                  >
                     Login
                   </a>
                 </li>
